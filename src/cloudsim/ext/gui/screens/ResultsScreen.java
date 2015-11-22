@@ -68,6 +68,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 	private double totalCost;
 	private double vmCost;
 	private double dataCost;
+        private double penaltyCost;
 	
 	/** Constructor */
 	public ResultsScreen(Simulation simulation){
@@ -118,10 +119,11 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		costPanel.setLayout(new BorderLayout());
 		costPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
 		
-		costTableModel = new SimpleTableModel(new String[]{"Data Center", "VM Cost", "Data Transfer Cost", "Total"});
+		costTableModel = new SimpleTableModel(new String[]{"Cloud Service Provider", "Cloud Service Cost", "Data Transfer Cost","Penalty Cost", "Total"});
 		double dcVmCost;
 		double dcDataCost;
 		double dcTotalCost;
+                double dcPenaltyCost;
 		
 		for (String dcName : costs.keySet()){
 			Map<String, Double> dcCosts = costs.get(dcName);
@@ -130,15 +132,18 @@ public class ResultsScreen extends JPanel implements ActionListener {
 			vmCost += dcVmCost;
 			dcDataCost = dcCosts.get(Constants.DATA_COST);
 			dataCost += dcDataCost;
+                        dcPenaltyCost = dcCosts.get(Constants.PENALTY_COST);
+                        penaltyCost += dcPenaltyCost;
 			dcTotalCost = dcCosts.get(Constants.TOTAL_COST);
 			totalCost += dcTotalCost;
 			
-			costTableModel.addRow(new Object[]{dcName, dcVmCost, dcDataCost, dcTotalCost});			
+			costTableModel.addRow(new Object[]{dcName, dcVmCost, dcDataCost,dcPenaltyCost, dcTotalCost});			
 		}		
 		
 		String resText = "<html><h2>Cost</h2>" 
-						+ "<table><tr><td>Total Virtual Machine Cost :</td><td>$" + df.format(vmCost) + "</td></tr>" 
+						+ "<table><tr><td>Total Cloud Service Cost :</td><td>$" + df.format(vmCost) + "</td></tr>" 
 						+ "<tr><td>Total Data Transfer Cost   : </td><td>$" + df.format(dataCost) + "</td></tr>"
+                                                + "<tr><td>Total Penalty Cost   : </td><td>$" + df.format(penaltyCost) + "</td></tr>"
 						+ "<tr><td><h3>Grand Total                : </h3></td><td>$" + df.format(totalCost) + "</td></tr>"
 						+ "</table></html>";
 		costPanel.add(new JLabel(resText), BorderLayout.NORTH);

@@ -7,16 +7,16 @@
 Version: SimJava 2.0
 
 Simulation date:         22 November, 2015
-Simulation start time:   12:59:55 PM IST
-Simulation end time:     12:59:56 PM IST
+Simulation start time:   1:09:14 PM IST
+Simulation end time:     1:09:14 PM IST
 
 ############################################################
 #            Overall simulation run information            #
 ############################################################
 
-Total simulated time:    3647500.0
+Total simulated time:    3650500.0
 Total transient time:    0.0
-Total steady state time: 3647500.0
+Total steady state time: 3650500.0
 Transient condition:     None
 Termination condition:   3600000.0 units of elapsed simulated time
 Output analysis method:  None
@@ -29,19 +29,19 @@ Output analysis method:  None
 
 - Service time
 
-Sample mean:          0.3423079879894798
-Sample variance:      0.06278010849279922
-Sample std deviation: 0.2505595907020907
-Maximum:              0.6161045002487526
-Minimum:              0.010386551963165402
+Sample mean:          0.3420589899407657
+Sample variance:      0.06250163650345855
+Sample std deviation: 0.25000327298549224
+Maximum:              0.6123853807221167
+Minimum:              0.01926164492033422
 
 - Overloading status : CSP1-Broker-0
 
-Sample mean:          0.3423079879894798
-Sample variance:      0.06278010849279922
-Sample std deviation: 0.2505595907020907
-Maximum:              0.6161045002487526
-Minimum:              0.010386551963165402
+Sample mean:          0.3420589899407657
+Sample variance:      0.06250163650345855
+Sample std deviation: 0.25000327298549224
+Maximum:              0.6123853807221167
+Minimum:              0.01926164492033422
 
 - Overloading status : CSP1-Broker-1
 
@@ -231,221 +231,19 @@ Minimum:              0.0
 
 - UB Response time
 
-Sample mean:          300.812199319699
-Sample variance:      420.6632850910345
-Sample std deviation: 20.510077647123484
-Maximum:              360.1150778721785
-Minimum:              241.6139820794342
+Sample mean:          300.05616085170834
+Sample variance:      434.029270390977
+Sample std deviation: 20.833369156019316
+Maximum:              369.11519830842735
+Minimum:              237.0591758233495
 
 - Hourly Response Time-0
 
-Sample mean:          300.812199319699
-Sample variance:      420.6632850910345
-Sample std deviation: 20.510077647123484
-Maximum:              360.1150778721785
-Minimum:              241.6139820794342
-
-- Hourly Response Time-1
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-2
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-3
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-4
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-5
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-6
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-7
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-8
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-9
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-10
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-11
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-12
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-13
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-14
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-15
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-16
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-17
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-18
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-19
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-20
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-21
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-22
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Hourly Response Time-23
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
---------------------------- CU2 ----------------------------
-
-- UB Response time
-
-Sample mean:          300.79696900968577
-Sample variance:      444.61344621035005
-Sample std deviation: 21.085858915641783
-Maximum:              375.1102149115177
-Minimum:              240.11807734076865
-
-- Hourly Response Time-0
-
-Sample mean:          300.79696900968577
-Sample variance:      444.61344621035005
-Sample std deviation: 21.085858915641783
-Maximum:              375.1102149115177
-Minimum:              240.11807734076865
+Sample mean:          300.05616085170834
+Sample variance:      434.029270390977
+Sample std deviation: 20.833369156019316
+Maximum:              369.11519830842735
+Minimum:              237.0591758233495
 
 - Hourly Response Time-1
 

@@ -1053,9 +1053,10 @@ public class ConfigureSimulationPanel extends JPanel
 										 "Peak Hours \nStart (GMT)",
 										 "Peak Hours \nEnd (GMT)",
 										 COL_AVG_PEAK_USERS,
-										 COL_AVG_OFF_PEAK_USERS});
+										 COL_AVG_OFF_PEAK_USERS,
+                                                                                  "Total \nService \nTime Taken \nhrs "});
 			setUniqueColumns(new int[]{0});
-			setNotNullColumns(new int[]{0, 1, 2, 3, 4, 5, 6, 7});
+			setNotNullColumns(new int[]{0, 1, 2, 3, 4, 5, 6, 7,8});
 		}
 		
 		@Override
@@ -1087,6 +1088,9 @@ public class ConfigureSimulationPanel extends JPanel
 			case 7:
 				ub.setOffPeakUserCount((Integer) value);
 				break;
+                        case 8:
+                            ub.setTotalTakenTime((Integer) value);
+                            break;
 			}
 		}		
 
@@ -1119,6 +1123,9 @@ public class ConfigureSimulationPanel extends JPanel
 			case 7:
 				value = ub.getOffPeakUserCount();
 				break;
+                        case 8:
+                            value = ub.getTotalTakenTime();
+                            break;
 			}
 			
 			return value;
@@ -1147,9 +1154,10 @@ public class ConfigureSimulationPanel extends JPanel
 										 "Memory \nCost $/s",
 										 "Storage \nCost $/s",
 										 "Data \nTransfer \nCost $/Gb",
-										 "Physical \nHW \nUnits"});
+										 "Physical \nHW \nUnits",
+                        "Total \nService \nGiven Time \nhrs"});
 			setUniqueColumns(new int[]{0});
-			setNotNullColumns(new int[]{0,1,2,3,4,5,6,7,8,9});
+			setNotNullColumns(new int[]{0,1,2,3,4,5,6,7,8,9,10});
 			this.data = data;
 		}
 		
@@ -1197,6 +1205,9 @@ public class ConfigureSimulationPanel extends JPanel
 			case 9: 
 				value = dc.getMachineList().size();
 				break;
+                        case 10:
+                            value = dc.getTotalGivenTime();
+                           break;
 			default: 
 				break;
 			}
@@ -1247,6 +1258,9 @@ public class ConfigureSimulationPanel extends JPanel
 			case 9: 
 				//Can't set this value
 				break;
+                        case 10:
+                            dc.setTotalGivenTime((Double) value);
+                            break;
 			default: 
 				break;
 			}

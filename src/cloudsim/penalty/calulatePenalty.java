@@ -35,10 +35,11 @@ public class calulatePenalty {
         System.out.println("Obtained Data in method: " + TimeGiven + "  "+ TimeTaken+"  "  + BSP);
        
         cost =0;
-        if (TimeGiven == TimeTaken)
+        if (TimeGiven >= TimeTaken)
         {
             cost = 0;
         }
+       
         else if(BSP.equals(Constants.BROKER_POLICY_ACO))
         {
             cost = (TimeTaken - TimeGiven) /100;

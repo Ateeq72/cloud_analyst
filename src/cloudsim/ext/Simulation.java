@@ -107,7 +107,8 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 																 DEFAULT_COST_PER_PROC,
 														 		 DEFAULT_COST_PER_MEM,
 																 DEFAULT_COST_PER_STOR,
-																 DEFAULT_COST_PER_BW);
+																 DEFAULT_COST_PER_BW,
+                DEFAULT_TIME_GIVEN);
 		MachineUIElement machine1 = new MachineUIElement(DEFAULT_MC_MEMORY,
 														 DEFAULT_MC_STORAGE,
 														 DEFAULT_MC_BW,
@@ -138,7 +139,8 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 											DEFAULT_REQ_SIZE,
 											DEFAULT_PEAK_HOURS,
 											DEFAULT_PEAK_USERS,
-											DEFAULT_OFFPEAK_USERS));
+											DEFAULT_OFFPEAK_USERS,
+                DEFAULT_TIME_TAKEN));
 		simulationTime = 3600000.0;
 		
 	}

@@ -26,6 +26,7 @@ public class UserBaseUIElement extends SimulationUIElement implements Serializab
 	private int peakUserCount;
 	private int offPeakUserCount;
 	private int reqPerHrPerUser;
+        private double TotalTakenTime;
 	
 	public UserBaseUIElement(){
 		
@@ -37,7 +38,8 @@ public class UserBaseUIElement extends SimulationUIElement implements Serializab
 							 long reqSize,
 							 int[] peakHours,
 							 int peakUserCount,
-							 int offPeakUserCount){
+							 int offPeakUserCount,
+                                                         double TotalTakenTime){
 		super(name, region);
 		this.reqPerHrPerUser = reqPerHrPerUser;
 		this.reqSize = reqSize;
@@ -45,7 +47,7 @@ public class UserBaseUIElement extends SimulationUIElement implements Serializab
 		this.peakHoursEnd = peakHours[1];
 		this.peakUserCount = peakUserCount;
 		this.offPeakUserCount = offPeakUserCount;
-		
+		this.TotalTakenTime = TotalTakenTime;
 		this.color = Color.BLUE;
 	}
 	
@@ -159,6 +161,16 @@ public class UserBaseUIElement extends SimulationUIElement implements Serializab
 	public void setReqPerHrPerUser(int reqPerHrPerUser) {
 		this.reqPerHrPerUser = reqPerHrPerUser;
 	}
+        
+        public void setTotalTakenTime(double ttt)
+        {
+            this.TotalTakenTime = ttt;
+         }
+        
+        public double getTotalTakenTime()
+        {
+            return TotalTakenTime;
+        }
 
 	
 }

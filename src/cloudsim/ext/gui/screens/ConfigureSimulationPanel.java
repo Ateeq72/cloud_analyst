@@ -623,7 +623,8 @@ public class ConfigureSimulationPanel extends JPanel
 															 DEFAULT_COST_PER_PROC,
 															 DEFAULT_COST_PER_MEM,
 															 DEFAULT_COST_PER_STOR,
-															 DEFAULT_COST_PER_BW);
+															 DEFAULT_COST_PER_BW,
+                DEFAULT_TIME_GIVEN);
 		
 		addNewDefaultMachine(newDc);
 		dataCenterList.add(newDc);
@@ -720,7 +721,8 @@ public class ConfigureSimulationPanel extends JPanel
 													 DEFAULT_REQ_SIZE,
 													 DEFAULT_PEAK_HOURS,
 													 DEFAULT_PEAK_USERS,
-													 DEFAULT_OFFPEAK_USERS));	
+													 DEFAULT_OFFPEAK_USERS,
+                        DEFAULT_TIME_TAKEN));	
 			ubTableModel.fireTableDataChanged();
 		} else if (e.getActionCommand().equals(CMD_REMOVE_USERBASE)){
 			int selectedRow = userBasesTable.getSelectedRow();

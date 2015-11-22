@@ -24,6 +24,7 @@ public class DataCenterUIElement extends SimulationUIElement implements Serializ
 	private double costPerBw;
 	private List<MachineUIElement> machineList;		
 	private VmAllocationUIElement vmAllocation;
+        private double TotalGivenTime;
 
 	/** Constructor */
 	public DataCenterUIElement(){
@@ -38,7 +39,8 @@ public class DataCenterUIElement extends SimulationUIElement implements Serializ
 							   double costPerProc,
 							   double costPerMem,
 							   double costPerStor,
-							   double costPerBw){
+							   double costPerBw,
+                                                           double TotalGivenTime){
 		super(name, region);
 		this.architecture = architecture;
 		this.os = os;
@@ -48,6 +50,7 @@ public class DataCenterUIElement extends SimulationUIElement implements Serializ
 		this.costPerMem = costPerMem;
 		this.costPerStorage = costPerStor;
 		this.costPerBw = costPerBw;
+                this.TotalGivenTime = TotalGivenTime;
 		
 		this.machineList = new ArrayList<MachineUIElement>();
 	}
@@ -207,7 +210,17 @@ public class DataCenterUIElement extends SimulationUIElement implements Serializ
 	public void setVmm(String vmm) {
 		this.vmm = vmm;
 	}
+        
+        
+        public void setTotalGivenTime(double tgt)
+        {
+            this.TotalGivenTime = tgt;
+        }
 
+        public double getTotalGivenTime()
+        {
+            return TotalGivenTime;
+        }
 	/**
 	 * @return the vmAllocation
 	 */

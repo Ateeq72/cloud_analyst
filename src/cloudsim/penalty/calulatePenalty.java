@@ -7,8 +7,7 @@
 package cloudsim.penalty;
 
 import cloudsim.ext.Constants;
-import cloudsim.ext.gui.DataCenterUIElement;
-import cloudsim.ext.gui.UserBaseUIElement;
+
 
 /**
  *
@@ -20,16 +19,21 @@ public class calulatePenalty {
     double TimeGiven;
     String BSP;
     double cost;
+    int i;
 
     public calulatePenalty(double TimeGiven,double TimeTaken,String BSP) {
         this.BSP = BSP;
         this.TimeGiven = TimeGiven;
-        this.TimeTaken = TimeTaken;
-                
+        this.TimeTaken = TimeTaken;      
+        System.out.println("Obtained Data : " + TimeGiven + "  "+ TimeTaken+"  "  + BSP);
+         i++;       
     }
     
     public double getPenaltyCost()
     {
+        
+        System.out.println("Obtained Data in method: " + TimeGiven + "  "+ TimeTaken+"  "  + BSP);
+       
         cost =0;
         if (TimeGiven == TimeTaken)
         {
@@ -51,6 +55,7 @@ public class calulatePenalty {
         {
             cost = (TimeTaken - TimeGiven + 0.07) /100;
         }
+        System.out.println("Returned Value : " +cost);
         return cost;
     }
     

@@ -66,6 +66,7 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 
 	//	private static CloudletList cloudletList;
 	private static VirtualMachineList vmlist;
+        private double totalPenaltyCost;
 
 	private final ObservableList<DataCenterUIElement> dataCenters;
 	private List<DatacenterController> dcbs;
@@ -87,6 +88,7 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
         static String BSP;
         private ArrayList<Double> CSPPenalty;
         private ArrayList<Double> CUPenalty;
+        private ArrayList<Double> TotalPenaltyList;
         static double penaltyCost;
 	
 	/** Constructor. */
@@ -176,6 +178,7 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 		dcs =  new ArrayList<DataCenter>();
                 dp = new ArrayList<DatacenterController>();
                 CSPPenalty = new ArrayList<Double>();
+                TotalPenaltyList = new ArrayList<Double>();
 		for (DataCenterUIElement d : dataCenters) {
 			if (d.isAllocated()){
 				DataCenter dc = createDatacenter(d);
@@ -258,11 +261,18 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
                 {
                     for (Double cu : CUPenalty)
                 {
-                    
+                   
                  calulatePenalty a = new calulatePenalty(csp, cu, BSP);
                     penaltyCost = a.getPenaltyCost();
+                    TotalPenaltyList.add(penaltyCost);               
+                
                 }
-                   
+                }
+                
+                for(Double tp : TotalPenaltyList)
+                {
+                    totalPenaltyCost += tp; 
+                    
                 }
                 
                 
@@ -279,8 +289,8 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 			dataCost = dcb.getDataTransferCost();
 			dcCosts.put(Constants.DATA_COST, dataCost);
                         obtpenaltyCost = penaltyCost;
-                        dcCosts.put(Constants.PENALTY_COST,obtpenaltyCost);
-			totalCost = vmCost + dataCost + obtpenaltyCost;
+                        dcCosts.put(Constants.PENALTY_COST,totalPenaltyCost);
+			totalCost = vmCost + dataCost + totalPenaltyCost;
 			dcCosts.put(Constants.TOTAL_COST, totalCost);
                         
                         

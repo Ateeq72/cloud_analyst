@@ -191,7 +191,7 @@ public class ConfigureSimulationPanel extends JPanel
 		int hGap = 10;
 		int vGap = hGap;
 		
-		JLabel heading = new JLabel("<html><h1>Configure Simulation</h1></html>");
+		JLabel heading = new JLabel("<html><h1>Configure Analysis</h1></html>");
 		heading.setBounds(x, y, compW, compH);
 		this.add(heading);
 		
@@ -266,7 +266,7 @@ public class ConfigureSimulationPanel extends JPanel
 		x = leftMargin; 
 		y += compH + vGap; 
 		compW = 70; 
-		JLabel lblUbHeading = new JLabel("User bases:");
+		JLabel lblUbHeading = new JLabel("Cloud \nUsers:");
 		lblUbHeading.setBounds(x, y, compW, compH);
 		mainTab.add(lblUbHeading);
 		

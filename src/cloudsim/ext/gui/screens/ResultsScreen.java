@@ -548,8 +548,9 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		List<Object[]> dcStats = dcProcTimeTableModel.getData();
 		
 		List<Object[]> costSummary = new ArrayList<Object[]>();
-		costSummary.add(new Object[]{"Total Virtual Machine Cost ($):", vmCost});
+		costSummary.add(new Object[]{"Total Cloud Service Cost ($):", vmCost});
 		costSummary.add(new Object[]{"Total Data Transfer Cost ($):", dataCost});
+                costSummary.add(new Object[]{"Total Penalty Cost ($):", penaltyCost});
 		costSummary.add(new Object[]{"Grand Total: ($)", totalCost});
 		
 		List<Object[]> costDetails = costTableModel.getData();

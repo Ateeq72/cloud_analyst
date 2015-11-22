@@ -57,6 +57,7 @@ public class UserBase extends CloudSim implements GeoLocatable {
 	
 	private Poisson userCountDistribution;
 	private Poisson requestDelayDistribution;
+        private double TotalTimeTaken;
 	
 	/** Constructor .*/
 	public UserBase(String name, 
@@ -67,7 +68,8 @@ public class UserBase extends CloudSim implements GeoLocatable {
 					int offPeakAvgUsers,
 					long reqDataSize,
 					int userGroupingFactor,
-					int instructionLengthPerRequest) throws Exception {
+					int instructionLengthPerRequest,
+                                        double TotalTimeTaken) throws Exception {
 		super(name);
 		
 		System.out.println(GridSim.clock() + " Creating new user base " + get_name());
@@ -79,6 +81,7 @@ public class UserBase extends CloudSim implements GeoLocatable {
 		this.offPeakAvgUsers = offPeakAvgUsers;
 		this.perRequestDataSize = reqDataSize;
 		this.userGroupingFactor = userGroupingFactor;
+                this.TotalTimeTaken = TotalTimeTaken;
 		
 		//Convert peak hrs to time in milliseconds from GMT
 		this.peakHours = new double[2];
@@ -201,6 +204,11 @@ public class UserBase extends CloudSim implements GeoLocatable {
 	public synchronized void cancelRun(){
 		cancelled = true;
 	}
+        
+        public double getTotalTimeTaken()
+        {
+            return TotalTimeTaken;
+        }
 
 
 	/**

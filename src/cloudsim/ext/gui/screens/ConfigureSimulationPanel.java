@@ -1089,7 +1089,7 @@ public class ConfigureSimulationPanel extends JPanel
 				ub.setOffPeakUserCount((Integer) value);
 				break;
                         case 8:
-                            ub.setTotalTakenTime((Integer) value);
+                            ub.setTotalTakenTime((Double) value);
                             break;
 			}
 		}		

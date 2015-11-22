@@ -54,6 +54,7 @@ import cloudsim.ext.servicebroker.ServiceProximityServiceBroker;
 import cloudsim.ext.stat.HourlyEventCounter;
 import cloudsim.ext.util.InternetEntitityRegistry;
 import cloudsim.ext.util.ObservableList;
+import cloudsim.penalty.calulatePenalty;
 
 /**
  * Main controller class of the simulation.
@@ -68,6 +69,7 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 
 	private final ObservableList<DataCenterUIElement> dataCenters;
 	private List<DatacenterController> dcbs;
+        private List<DatacenterController> dp;
 	private List<DataCenter> dcs;
 	private final ObservableList<UserBaseUIElement> userBases;
 	private List<UserBase> ubs;
@@ -78,8 +80,14 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 	private int dcRequestGroupingFactor = 10;
 	private int instructionLengthPerRequest = 100;
 	private CloudSimEventListener progressListener;
+        private double TotalTimeTaken;
+        private double TotalTimeGivem;
 	private Map<String, Object> results;
 	private Internet internet;
+        static String BSP;
+        private ArrayList<Double> CSPPenalty;
+        private ArrayList<Double> CUPenalty;
+        static double penaltyCost;
 	
 	/** Constructor. */
 	public Simulation(CloudSimEventListener gui) throws Exception {
@@ -166,6 +174,8 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 		// Create Datacenters and Controllers
 		dcbs  = new ArrayList<DatacenterController>();
 		dcs =  new ArrayList<DataCenter>();
+                dp = new ArrayList<DatacenterController>();
+                CSPPenalty = new ArrayList<Double>();
 		for (DataCenterUIElement d : dataCenters) {
 			if (d.isAllocated()){
 				DataCenter dc = createDatacenter(d);
@@ -173,7 +183,8 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 														       d.getRegion(), 
 														       d.getCostPerProcessor(), 
 														       d.getCostPerBw());
-				dcbs.add(controller);
+				CSPPenalty.add(d.getTotalGivenTime());
+                                dcbs.add(controller);
 				dcs.add(dc);
 				
 				int brokerId = controller.get_id();
@@ -184,6 +195,7 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 		
 		//Create user bases
 		ubs  = new ArrayList<UserBase>();
+                CUPenalty = new ArrayList<Double>();
 		for (UserBaseUIElement ub : userBases) {
 			UserBase userBase = new UserBase(ub.getName(),
 											 ub.getRegion(),
@@ -193,8 +205,10 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 											 ub.getOffPeakUserCount(),
 											 ub.getReqSize(),
 											 userGroupingFactor,
-											 instructionLengthPerRequest);
-			ubs.add(userBase);
+											 instructionLengthPerRequest,TotalTimeTaken);
+			
+                        CUPenalty.add(ub.getTotalTakenTime());
+                        ubs.add(userBase);
 		}
 
 		//The Internet
@@ -203,15 +217,19 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 		CloudAppServiceBroker serviceBroker;
 		if (serviceBrokerPolicy.equals(Constants.BROKER_POLICY_PROXIMITY)){
 			serviceBroker = new ServiceProximityServiceBroker();
+                        BSP = Constants.BROKER_POLICY_PROXIMITY;
 		} else if (serviceBrokerPolicy.equals(Constants.BROKER_POLICY_DYNAMIC)){
 			serviceBroker = new DynamicServiceBroker(dcbs);
+                        BSP = Constants.BROKER_POLICY_DYNAMIC;
 		} 
                 else if (serviceBrokerPolicy.equals(Constants.BROKER_POLICY_ACO))
                 {
                     serviceBroker = new AntColonyOptimization();
+                    BSP = Constants.BROKER_POLICY_ACO;
                 }
                 else {
 			serviceBroker = new BestResponseTimeServiceBroker();
+                        BSP = Constants.BROKER_POLICY_OPTIMAL_RESPONSE;
 		}
 		internet.addServiceBroker(DEFAULT_APP_ID, serviceBroker); 				
 		
@@ -232,7 +250,22 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 		Map<String, SimMeasure> dcProcTimes = new TreeMap<String, SimMeasure>();
 		Map<String, Map<String, Double>> costs = new HashMap<String, Map<String,Double>>();
 		HourlyEventCounter hrlyArrivalStat = null;
-		double vmCost, dataCost, totalCost;
+		double vmCost, dataCost, obtpenaltyCost, totalCost;
+                
+                
+                
+                for (Double csp : CSPPenalty)
+                {
+                    for (Double cu : CUPenalty)
+                {
+                    
+                 calulatePenalty a = new calulatePenalty(csp, cu, BSP);
+                    penaltyCost = a.getPenaltyCost();
+                }
+                   
+                }
+                
+                
 		
 		for (DatacenterController dcb : dcbs) {
 			hrlyArrivalStat = dcb.getHourlyArrival();				
@@ -245,8 +278,13 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 			dcCosts.put(Constants.VM_COST, vmCost);				
 			dataCost = dcb.getDataTransferCost();
 			dcCosts.put(Constants.DATA_COST, dataCost);
-			totalCost = vmCost + dataCost;
+                        obtpenaltyCost = penaltyCost;
+                        dcCosts.put(Constants.PENALTY_COST,obtpenaltyCost);
+			totalCost = vmCost + dataCost + obtpenaltyCost;
 			dcCosts.put(Constants.TOTAL_COST, totalCost);
+                        
+                        
+                        
 			
 			costs.put(dcName, dcCosts);
 			

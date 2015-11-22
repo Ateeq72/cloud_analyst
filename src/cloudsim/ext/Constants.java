@@ -79,6 +79,7 @@ public interface Constants {
 	final String VM_COST = "VM Cost";
 	final String DATA_COST = "Data Cost";
 	final String TOTAL_COST = "Total Cost";
+        final String PENALTY_COST = "Penalty Cost";
 
 	final String BROKER_POLICY_PROXIMITY = "Closest Data Center";
 	final String BROKER_POLICY_OPTIMAL_RESPONSE = "Optimise Response Time";

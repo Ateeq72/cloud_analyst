@@ -37,6 +37,7 @@ import cloudsim.ext.gui.utils.SimpleGraph;
 import cloudsim.ext.gui.utils.SimpleTableModel;
 import cloudsim.ext.stat.HourlyEventCounter;
 import cloudsim.ext.util.PdfExporter;
+import cloudsim.penalty.calulatePenalty;
 
 import com.lowagie.text.DocumentException;
 

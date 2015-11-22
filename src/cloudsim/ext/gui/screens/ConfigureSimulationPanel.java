@@ -200,7 +200,7 @@ public class ConfigureSimulationPanel extends JPanel
 		compW = 900;
 		JTabbedPane tabbedPane = new JTabbedPane();
 		tabbedPane.addTab("Main Configuration", createMainTab());
-		tabbedPane.addTab("Data Center Configuration", createDcTab());
+		tabbedPane.addTab("Cloud Service Provider Configuration", createDcTab());
 		tabbedPane.addTab("Advanced", createAdvancedTab());
 		tabbedPane.setBounds(x, y, compW, compH);
 		this.add(tabbedPane);
@@ -390,7 +390,7 @@ public class ConfigureSimulationPanel extends JPanel
 		y += lastCompH + vGap;
 		compW = 240;
 		lastCompH = compH = 70;
-		JLabel lblDcRequestGrouping = new JLabel("<html>Request grouping factor in Data Centers:" +
+		JLabel lblDcRequestGrouping = new JLabel("<html>Request grouping factor in Cloud Service Provider:" +
 				                                  "<br/>(Equivalent to number of simultaneous" +
 				                                  "<br/> requests a single applicaiton server" +
 				                                  "<br/> instance can support.) </html>");
@@ -811,7 +811,7 @@ public class ConfigureSimulationPanel extends JPanel
 
 	private void addVmAllocation() {
 		if (dataCenterList.size() == 0){
-			JOptionPane.showMessageDialog(this, "Please create at least one Data Center before you" +
+			JOptionPane.showMessageDialog(this, "Please create at least one Cloud Service before you" +
 												" can allocate virtual machines.");
 			return;
 		}		
@@ -825,7 +825,7 @@ public class ConfigureSimulationPanel extends JPanel
 			}
 		}
 		if (incompleteRow != -1){
-			JOptionPane.showMessageDialog(this, "Please complete the current allocation by selecting a Data Center.");
+			JOptionPane.showMessageDialog(this, "Please complete the current allocation by selecting a Cloud Service Provider.");
 			vmAllocTable.getSelectionModel().setSelectionInterval(incompleteRow, incompleteRow);
 			return;
 		}

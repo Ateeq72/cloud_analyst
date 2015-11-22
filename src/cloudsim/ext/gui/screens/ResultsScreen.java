@@ -168,7 +168,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 							+ "<tr><th></th><th>Average (ms)</th><th>Minimum (ms)</th><th>Maximum (ms)</th></tr>"
 							+ "<tr><td>Overall Response Time:</td><td>" + df.format(avgResponseTime) + "</td><td>"
 							+ df.format(minResponseTime) + "</td><td>" + df.format(maxResponseTime) + "</td><td></tr>"
-							+ "<tr><td>Data Center Processing Time:</td><td>" + df.format(avgProcessingTime) + "</td><td>" 
+							+ "<tr><td>Cloud Service Provider Processing Time:</td><td>" + df.format(avgProcessingTime) + "</td><td>" 
 							+ df.format(minProcessingTime) + "</td><td>" + df.format(maxProcessingTime) + "</td><td></tr>"
 							+ "</table></html>";							
 		JLabel details = new JLabel(detailsText);
@@ -201,7 +201,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		responseStatsPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
 		responseStatsPanel.setLayout(new BorderLayout());
 		
-		ubStatsTableModel = new SimpleTableModel(new String[]{"Userbase", "Avg (ms)", "Min (ms)", "Max (ms)"});
+		ubStatsTableModel = new SimpleTableModel(new String[]{"Cloud User", "Avg (ms)", "Min (ms)", "Max (ms)"});
 		JTable resTable = new JTable(ubStatsTableModel);
 		
 		List<SimMeasure> sortedStats = new ArrayList<SimMeasure>(ubStats.values());
@@ -230,7 +230,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 										
 					count += m.getCount();
 					rowCount++;
-				} 
+				}
 			} else {
 				String ub = m.getEntityName();
 				long[] avgTimes = hourlyResponseTimes.get(ub);
@@ -306,7 +306,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		}
 		JPanel bottomPanel = new JPanel();
 		bottomPanel.setLayout(new BorderLayout());
-		bottomPanel.add(new JLabel("<html><h3>User Base Hourly Average Response Times</h3></html>"),
+		bottomPanel.add(new JLabel("<html><h3>Cloud user Hourly Average Response Times</h3></html>"),
 						BorderLayout.NORTH);
 		bottomPanel.add(graphPanel);
 		bottomPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
@@ -328,7 +328,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		procTimeStatsPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
 		procTimeStatsPanel.setLayout(new BorderLayout());
 		
-		dcProcTimeTableModel = new SimpleTableModel(new String[]{"Data Center", "Avg (ms)", "Min (ms)", "Max (ms)"});
+		dcProcTimeTableModel = new SimpleTableModel(new String[]{"Cloud Service Provider", "Avg (ms)", "Min (ms)", "Max (ms)"});
 		JTable procTimeTable = new JTable(dcProcTimeTableModel);
 		procTimeTable.setEnabled(false);
 		
@@ -382,7 +382,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		minProcessingTime = min;
 		maxProcessingTime = max;
 		
-		procTimeStatsPanel.add(new JLabel("<html><h3>Data Center Request Servicing Times</h3></html>"), BorderLayout.NORTH);
+		procTimeStatsPanel.add(new JLabel("<html><h3>Cloud Service Provider Request Servicing Times</h3></html>"), BorderLayout.NORTH);
 		
 		procTimeTable.setPreferredScrollableViewportSize(new Dimension(300, 20 * rowCount));
 		JScrollPane tblPanel = new JScrollPane(procTimeTable);
@@ -431,7 +431,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		}
 		JPanel bottomPanel = new JPanel();
 		bottomPanel.setLayout(new BorderLayout());
-		bottomPanel.add(new JLabel("<html><h3>Data Center Hourly Average Processing Times</h3></html>"),
+		bottomPanel.add(new JLabel("<html><h3>Cloud Service Provider Hourly Average Processing Times</h3></html>"),
 						BorderLayout.NORTH);
 		bottomPanel.add(graphPanel);
 		bottomPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
@@ -484,7 +484,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		}
 		JPanel bottomPanel = new JPanel();
 		bottomPanel.setLayout(new BorderLayout());
-		bottomPanel.add(new JLabel("<html><h3>Data Center Loading</h3></html>"), BorderLayout.NORTH);
+		bottomPanel.add(new JLabel("<html><h3>Cloud Service Provider Requests/hr</h3></html>"), BorderLayout.NORTH);
 		bottomPanel.add(graphPanel);
 		bottomPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
 		return bottomPanel;
@@ -542,7 +542,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		
 		List<Object[]> summary = new ArrayList<Object[]>();
 		summary.add(new Object[]{"Overall response time:", avgResponseTime, minResponseTime, maxResponseTime});
-		summary.add(new Object[]{"Data Center processing time:", avgProcessingTime, minProcessingTime, maxProcessingTime});
+		summary.add(new Object[]{"Cloud Service Provider processing time:", avgProcessingTime, minProcessingTime, maxProcessingTime});
 		
 		List<Object[]> ubStats = ubStatsTableModel.getData();
 		List<Object[]> dcStats = dcProcTimeTableModel.getData();

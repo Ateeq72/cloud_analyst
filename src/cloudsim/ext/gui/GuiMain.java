@@ -54,9 +54,9 @@ private static final String CMD_ABOUT = "About";
 	private static final String CMD_DEFINE_INTERNET_CHARACTERISTICS = "Define Internet Characteristics";
 	private static final String HOME_SCREEN = "home screen";
 	private static final String CONFIG_SCREEN = "configScreen";
-	private static final String CMD_RUN_SIMULATION = "Run Simulation";
+	private static final String CMD_RUN_SIMULATION = "Run Analysis";
 	private static final String CMD_EXIT = "Exit";
-	private static final String CMD_CONFIGURE_SIMULATION = "Configure Simulation";	
+	private static final String CMD_CONFIGURE_SIMULATION = "Configure Analysis";	
 	private static final Dimension MENU_BUTTON_SIZE = new Dimension(120, 40);
 	private static final Dimension FRAME_SIZE = new Dimension(800, 600);
 	private static final int MENU_BTN_V_GAP = 10;
@@ -92,7 +92,7 @@ private static final String CMD_ABOUT = "About";
 	}
 	
 	private void initUI(){		
-		this.setTitle("Cloud Analyst");
+		this.setTitle("Cloud Service Analysis");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(FRAME_SIZE);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -199,7 +199,7 @@ private static final String CMD_ABOUT = "About";
 		if (resultsDlg == null){
 			resultsDlg = new JDialog(this);
 			resultsDlg.setLocationRelativeTo(this);
-			resultsDlg.setTitle("Simulation Results");
+			resultsDlg.setTitle("Analysis Results");
 			
 			resultsScreen = new ResultsScreen(simulation);
 			resultsDlg.getContentPane().add(new JScrollPane(resultsScreen));
@@ -274,7 +274,7 @@ private static final String CMD_ABOUT = "About";
 	private void showBusyMessage(){
 		if (busyMessagePnl == null){
 			busyMessagePnl = new JPanel();
-			busyMessagePnl.add(new JLabel("<html><h2>Simulation Running...</h2></html>"), BorderLayout.NORTH);
+			busyMessagePnl.add(new JLabel("<html><h2>Analysis Running...</h2></html>"), BorderLayout.NORTH);
 			
 			progressBar = new JProgressBar(0, (int) (simulation.getSimulationTime() / 1000));
 			progressBar.setStringPainted(true);
@@ -288,7 +288,7 @@ private static final String CMD_ABOUT = "About";
 	private void showSimulationCompleteMessage(){
 		messagePanel.removeAll();
 		
-		JLabel msg = new JLabel("<html><h2>Simulation Complete</h2></html>");
+		JLabel msg = new JLabel("<html><h2>Analysis Complete</h2></html>");
 		messagePanel.add(msg);
 		
 		messagePanel.revalidate();

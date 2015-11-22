@@ -52,12 +52,12 @@ public class PdfExporter {
 		addSummary(pdf, summary);
 		
 		addUbResults(pdf, ubStats);
-		addGraphs(pdf, ubResponseGraphs, "User Base Hourly Response Times");
+		addGraphs(pdf, ubResponseGraphs, "Cloud User Hourly Response Times");
 		
 		addDcProcessingStats(pdf, dcStats);
 		
-		addGraphs(pdf, dcProcTimeGraphs, "Data Center Hourly Average Processing Times");
-		addGraphs(pdf, dcLoadingGraphs, "Data Center Hourly Loading");
+		addGraphs(pdf, dcProcTimeGraphs, "Cloud Service Provider Hourly Average Processing Times");
+		addGraphs(pdf, dcLoadingGraphs, "Cloud Service Provider Requests/hr");
 		
 		addCostSummary(pdf, costSummary);
 		addCostDetails(pdf, costDetails);
@@ -108,7 +108,7 @@ public class PdfExporter {
 		addHeader(pdf, "Response Time by Region", 12);
 		
 		PdfPTable table = new PdfPTable(new float[]{0.25f, 0.25f, 0.25f, 0.25f});
-		table.addCell(getHeadingCell("Userbase"));
+		table.addCell(getHeadingCell("Cloud User"));
 		table.addCell(getHeadingCell("Avg (ms)"));
 		table.addCell(getHeadingCell("Min (ms)"));
 		table.addCell(getHeadingCell("Max (ms)"));
@@ -119,10 +119,10 @@ public class PdfExporter {
 	}
 	
 	private static void addDcProcessingStats(Document pdf, List<Object[]> dcStats) throws DocumentException{
-		addHeader(pdf, "Data Center Request Servicing Times", 12);
+		addHeader(pdf, "Cloud Service Provider Request Servicing Times", 12);
 		
 		PdfPTable table = new PdfPTable(new float[]{0.25f, 0.25f, 0.25f, 0.25f});
-		table.addCell(getHeadingCell("Data Center"));
+		table.addCell(getHeadingCell("Cloud Service Provider"));
 		table.addCell(getHeadingCell("Avg (ms)"));
 		table.addCell(getHeadingCell("Min (ms)"));
 		table.addCell(getHeadingCell("Max (ms)"));

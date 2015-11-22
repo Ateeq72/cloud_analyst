@@ -38,7 +38,7 @@ public interface Constants {
 	final String PDF_EXTENSION = ".pdf";
 
 	//Default Data Center characteristics
-	final String DEFAULT_DATA_CENTER_NAME = "DC1";
+	final String DEFAULT_DATA_CENTER_NAME = "CSP1";
 	final String DEFAULT_ARCHITECTURE = "x86";
 	final String DEFAULT_OS = "Linux";
 	final String DEFAULT_VMM = "Xen";
@@ -48,6 +48,7 @@ public interface Constants {
 	final double DEFAULT_COST_PER_MEM = 0.05; // the cost of using memory in this resource
 	final double DEFAULT_COST_PER_STOR = 0.1; // the cost of using storage in this resource
 	final double DEFAULT_COST_PER_BW = 0.1;
+        final double DEFAULT_TIME_GIVEN = 60;
 
 	final int DEFAULT_MC_MEMORY = 204800;
 	final long DEFAULT_MC_STORAGE = 100000000;
@@ -60,13 +61,14 @@ public interface Constants {
 	final long DEFAULT_VM_BW = 1000;
 
 	//Default User base characteristics
-	final String DEFAULT_USER_BASE_NAME = "UB1";
+	final String DEFAULT_USER_BASE_NAME = "CU1";
 	final int DEFAULT_UB_REGION = 2;
 	final int DEFAULT_REQ_PER_USER_PER_HR = 60;
 	final long DEFAULT_REQ_SIZE = 100;
 	final int[] DEFAULT_PEAK_HOURS = new int[]{3, 9};
 	final int DEFAULT_PEAK_USERS = 1000;
 	final int DEFAULT_OFFPEAK_USERS = 100;
+        final double DEFAULT_TIME_TAKEN = 60;
 
 
 	final String UB_STATS = "UB stats";
@@ -81,6 +83,7 @@ public interface Constants {
 	final String BROKER_POLICY_PROXIMITY = "Closest Data Center";
 	final String BROKER_POLICY_OPTIMAL_RESPONSE = "Optimise Response Time";
 	final String BROKER_POLICY_DYNAMIC = "Reconfigure Dynamically with Load";
+        final String BROKER_POLICY_ACO = "Ant Colony Optimization";
 
 	final String LOAD_BALANCE_POLICY_RR = "Round Robin";
 	final String LOAD_BALANCE_ACTIVE = "Equally Spread Current Execution Load";

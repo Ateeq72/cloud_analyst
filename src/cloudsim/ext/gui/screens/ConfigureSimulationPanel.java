@@ -296,7 +296,8 @@ public class ConfigureSimulationPanel extends JPanel
 		compW = 180;
 		cmbServiceBroker = new JComboBox(new String[]{Constants.BROKER_POLICY_PROXIMITY, 
 													  Constants.BROKER_POLICY_OPTIMAL_RESPONSE,
-													  Constants.BROKER_POLICY_DYNAMIC});
+													  Constants.BROKER_POLICY_DYNAMIC,
+                                                                                                           Constants.BROKER_POLICY_ACO});
 		cmbServiceBroker.setSelectedItem(simulation.getServiceBrokerPolicy());
 		cmbServiceBroker.setBounds(x, y, compW, compH);
 		mainTab.add(cmbServiceBroker);
@@ -614,7 +615,7 @@ public class ConfigureSimulationPanel extends JPanel
 	private void addNewDC(){
 		int dcs = dataCenterList.size();			
 		
-		DataCenterUIElement newDc = new DataCenterUIElement("DC" + (dcs + 1), 
+		DataCenterUIElement newDc = new DataCenterUIElement("CSP" + (dcs + 1), 
 															 DEFAULT_DC_REGION,
 															 DEFAULT_ARCHITECTURE,
 															 DEFAULT_OS,
@@ -711,7 +712,7 @@ public class ConfigureSimulationPanel extends JPanel
 			int userBases = userBasesList.size();// ubTableModel.getRowCount();
 			String ubName;
 			do {
-				ubName = "UB" + userBases++;
+				ubName = "CU" + userBases++;
 			} while (!ubTableModel.isUnique(ubName, 0));
 			userBasesList.add(new UserBaseUIElement(ubName, 
 													 DEFAULT_UB_REGION, 

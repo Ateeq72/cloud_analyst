@@ -46,6 +46,7 @@ import cloudsim.ext.gui.MachineUIElement;
 import cloudsim.ext.gui.UserBaseUIElement;
 import cloudsim.ext.gui.VmAllocationUIElement;
 import cloudsim.ext.gui.utils.SimMeasure;
+import cloudsim.ext.servicebroker.AntColonyOptimization;
 import cloudsim.ext.servicebroker.BestResponseTimeServiceBroker;
 import cloudsim.ext.servicebroker.CloudAppServiceBroker;
 import cloudsim.ext.servicebroker.DynamicServiceBroker;
@@ -202,7 +203,12 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 			serviceBroker = new ServiceProximityServiceBroker();
 		} else if (serviceBrokerPolicy.equals(Constants.BROKER_POLICY_DYNAMIC)){
 			serviceBroker = new DynamicServiceBroker(dcbs);
-		} else {
+		} 
+                else if (serviceBrokerPolicy.equals(Constants.BROKER_POLICY_ACO))
+                {
+                    serviceBroker = new AntColonyOptimization();
+                }
+                else {
 			serviceBroker = new BestResponseTimeServiceBroker();
 		}
 		internet.addServiceBroker(DEFAULT_APP_ID, serviceBroker); 				

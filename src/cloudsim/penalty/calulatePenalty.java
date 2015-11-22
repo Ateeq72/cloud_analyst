@@ -19,18 +19,20 @@ public class calulatePenalty {
     double TimeGiven;
     String BSP;
     double cost;
-    int i;
+    static int i = 1;
+    static int j;
 
     public calulatePenalty(double TimeGiven,double TimeTaken,String BSP) {
         this.BSP = BSP;
         this.TimeGiven = TimeGiven;
-        this.TimeTaken = TimeTaken;      
-        System.out.println("Obtained Data : " + TimeGiven + "  "+ TimeTaken+"  "  + BSP);
-         i++;       
+        this.TimeTaken = TimeTaken;   
+       
+        
     }
     
     public double getPenaltyCost()
     {
+        j += i;
         
         System.out.println("Obtained Data in method: " + TimeGiven + "  "+ TimeTaken+"  "  + BSP);
        
@@ -56,7 +58,8 @@ public class calulatePenalty {
         {
             cost = (TimeTaken - TimeGiven + 0.07) /100;
         }
-        System.out.println("Returned Value : " +cost);
+      
+        System.out.println("Cost for CU"+ j + ":  "+ cost);
         return cost;
     }
     

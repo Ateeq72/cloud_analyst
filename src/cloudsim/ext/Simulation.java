@@ -75,7 +75,7 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 	private final ObservableList<UserBaseUIElement> userBases;
 	private List<UserBase> ubs;
 	private double simulationTime;
-	private String serviceBrokerPolicy = Constants.BROKER_POLICY_PROXIMITY;
+	private String serviceBrokerPolicy = Constants.BROKER_POLICY_OPTIMAL_RESPONSE;
 	private String loadBalancePolicy = Constants.LOAD_BALANCE_POLICY_RR;
 	private int userGroupingFactor = 10;
 	private int dcRequestGroupingFactor = 10;
@@ -264,8 +264,7 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
                    
                  calulatePenalty a = new calulatePenalty(csp, cu, BSP);
                     penaltyCost = a.getPenaltyCost();
-                    TotalPenaltyList.add(penaltyCost);               
-                
+                    TotalPenaltyList.add(penaltyCost);          
                 }
                 }
                 

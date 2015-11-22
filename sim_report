@@ -7,8 +7,8 @@
 Version: SimJava 2.0
 
 Simulation date:         22 November, 2015
-Simulation start time:   2:53:16 PM IST
-Simulation end time:     2:53:18 PM IST
+Simulation start time:   3:21:06 PM IST
+Simulation end time:     3:21:07 PM IST
 
 ############################################################
 #            Overall simulation run information            #
@@ -29,19 +29,19 @@ Output analysis method:  None
 
 - Service time
 
-Sample mean:          0.3453980024776969
-Sample variance:      0.06301897221112783
-Sample std deviation: 0.25103579866450887
-Maximum:              0.6344276428222599
-Minimum:              0.019536743173375726
+Sample mean:          0.34905559661665836
+Sample variance:      0.06284532672317919
+Sample std deviation: 0.25068970206847185
+Maximum:              0.6396228971935329
+Minimum:              0.01695924485102296
 
 - Overloading status : CSP1-Broker-0
 
-Sample mean:          0.3453980024776969
-Sample variance:      0.06301897221112783
-Sample std deviation: 0.25103579866450887
-Maximum:              0.6344276428222599
-Minimum:              0.019536743173375726
+Sample mean:          0.34905559661665836
+Sample variance:      0.06284532672317919
+Sample std deviation: 0.25068970206847185
+Maximum:              0.6396228971935329
+Minimum:              0.01695924485102296
 
 - Overloading status : CSP1-Broker-1
 
@@ -227,629 +227,23 @@ Sample std deviation: 0.0
 Maximum:              0.0
 Minimum:              0.0
 
------------------------ CSP2-Broker ------------------------
-
-- Service time
-
-Sample mean:          0.3852215354356157
-Sample variance:      0.06270713908010257
-Sample std deviation: 0.25041393547505014
-Maximum:              0.6436299169436097
-Minimum:              0.01915927790105343
-
-- Overloading status : CSP2-Broker-0
-
-Sample mean:          0.3852215354356157
-Sample variance:      0.06270713908010257
-Sample std deviation: 0.25041393547505014
-Maximum:              0.6436299169436097
-Minimum:              0.01915927790105343
-
-- Overloading status : CSP2-Broker-1
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-2
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-3
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-4
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-5
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-6
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-7
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-8
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-9
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-10
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-11
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-12
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-13
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-14
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-15
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-16
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-17
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-18
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-19
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-20
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-21
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-22
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP2-Broker-23
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
------------------------ CSP3-Broker ------------------------
-
-- Service time
-
-Sample mean:          0.37083124911916054
-Sample variance:      0.06349352459422854
-Sample std deviation: 0.25197921460753175
-Maximum:              0.6648499625069917
-Minimum:              0.01965255755931139
-
-- Overloading status : CSP3-Broker-0
-
-Sample mean:          0.37083124911916054
-Sample variance:      0.06349352459422854
-Sample std deviation: 0.25197921460753175
-Maximum:              0.6648499625069917
-Minimum:              0.01965255755931139
-
-- Overloading status : CSP3-Broker-1
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-2
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-3
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-4
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-5
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-6
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-7
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-8
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-9
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-10
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-11
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-12
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-13
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-14
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-15
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-16
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-17
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-18
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-19
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-20
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-21
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-22
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP3-Broker-23
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
------------------------ CSP4-Broker ------------------------
-
-- Service time
-
-Sample mean:          0.3538773847967208
-Sample variance:      0.06228671954651245
-Sample std deviation: 0.2495730745623663
-Maximum:              0.641194469523839
-Minimum:              0.020732573233544827
-
-- Overloading status : CSP4-Broker-0
-
-Sample mean:          0.3538773847967208
-Sample variance:      0.06228671954651245
-Sample std deviation: 0.2495730745623663
-Maximum:              0.641194469523839
-Minimum:              0.020732573233544827
-
-- Overloading status : CSP4-Broker-1
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-2
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-3
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-4
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-5
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-6
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-7
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-8
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-9
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-10
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-11
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-12
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-13
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-14
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-15
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-16
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-17
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-18
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-19
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-20
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-21
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-22
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
-- Overloading status : CSP4-Broker-23
-
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
-
 --------------------------- CU1 ----------------------------
 
 - UB Response time
 
-Sample mean:          300.41599360231163
-Sample variance:      408.6285390495781
-Sample std deviation: 20.21456254905305
-Maximum:              360.13760212494526
-Minimum:              232.63685887667816
+Sample mean:          299.61511319104545
+Sample variance:      449.18596248551023
+Sample std deviation: 21.194007702308458
+Maximum:              361.61936015216634
+Minimum:              238.62080988934758
 
 - Hourly Response Time-0
 
-Sample mean:          300.41599360231163
-Sample variance:      408.6285390495781
-Sample std deviation: 20.21456254905305
-Maximum:              360.13760212494526
-Minimum:              232.63685887667816
+Sample mean:          299.61511319104545
+Sample variance:      449.18596248551023
+Sample std deviation: 21.194007702308458
+Maximum:              361.61936015216634
+Minimum:              238.62080988934758
 
 - Hourly Response Time-1
 
@@ -1039,19 +433,19 @@ Minimum:              0.0
 
 - UB Response time
 
-Sample mean:          301.10529530665616
-Sample variance:      466.95687474789855
-Sample std deviation: 21.60918496260094
-Maximum:              375.109928809281
-Minimum:              232.63987595192157
+Sample mean:          300.2937278091608
+Sample variance:      433.4698727591032
+Sample std deviation: 20.819939307286734
+Maximum:              373.61412108596414
+Minimum:              238.61641538934782
 
 - Hourly Response Time-0
 
-Sample mean:          301.10529530665616
-Sample variance:      466.95687474789855
-Sample std deviation: 21.60918496260094
-Maximum:              375.109928809281
-Minimum:              232.63987595192157
+Sample mean:          300.2937278091608
+Sample variance:      433.4698727591032
+Sample std deviation: 20.819939307286734
+Maximum:              373.61412108596414
+Minimum:              238.61641538934782
 
 - Hourly Response Time-1
 
@@ -1241,19 +635,19 @@ Minimum:              0.0
 
 - UB Response time
 
-Sample mean:          300.4037363756005
-Sample variance:      402.1481956400565
-Sample std deviation: 20.053632978591597
-Maximum:              360.14408980635926
-Minimum:              237.13631827011704
+Sample mean:          299.7831364821947
+Sample variance:      448.865141429379
+Sample std deviation: 21.18643767671618
+Maximum:              369.1170641465578
+Minimum:              235.61125024827197
 
 - Hourly Response Time-0
 
-Sample mean:          300.4037363756005
-Sample variance:      402.1481956400565
-Sample std deviation: 20.053632978591597
-Maximum:              360.14408980635926
-Minimum:              237.13631827011704
+Sample mean:          299.7831364821947
+Sample variance:      448.865141429379
+Sample std deviation: 21.18643767671618
+Maximum:              369.1170641465578
+Minimum:              235.61125024827197
 
 - Hourly Response Time-1
 
@@ -1443,19 +837,19 @@ Minimum:              0.0
 
 - UB Response time
 
-Sample mean:          299.67891369190625
-Sample variance:      417.61258378604714
-Sample std deviation: 20.435571530692435
-Maximum:              363.16230708919466
-Minimum:              241.60755650419742
+Sample mean:          299.0758921257294
+Sample variance:      445.81869007830034
+Sample std deviation: 21.114419008779294
+Maximum:              372.1113955071196
+Minimum:              241.61178183928132
 
 - Hourly Response Time-0
 
-Sample mean:          299.67891369190625
-Sample variance:      417.61258378604714
-Sample std deviation: 20.435571530692435
-Maximum:              363.16230708919466
-Minimum:              241.60755650419742
+Sample mean:          299.0758921257294
+Sample variance:      445.81869007830034
+Sample std deviation: 21.114419008779294
+Maximum:              372.1113955071196
+Minimum:              241.61178183928132
 
 - Hourly Response Time-1
 

@@ -143,10 +143,11 @@ public class PdfExporter {
 	
 	private static void addCostDetails(Document pdf, List<Object[]> costs) throws DocumentException{
 		
-		PdfPTable table = new PdfPTable(new float[]{0.25f, 0.25f, 0.25f, 0.25f});
-		table.addCell("Data Center");
-		table.addCell(getHeadingCell("VM Cost $"));
+		PdfPTable table = new PdfPTable(new float[]{0.25f, 0.25f, 0.25f, 0.25f,0.25f});
+		table.addCell("Cloud Service Provider ");
+		table.addCell(getHeadingCell("Cloud Service Cost $"));
 		table.addCell(getHeadingCell("Data Transfer Cost $"));
+                table.addCell(getHeadingCell("Penalty Cost $"));
 		table.addCell(getHeadingCell("Total $"));
 		
 		populateTable(costs, table);

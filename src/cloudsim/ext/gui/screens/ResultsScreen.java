@@ -31,13 +31,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileFilter;
 
 import cloudsim.ext.Constants;
+import cloudsim.penalty.calulatePenalty;
 import cloudsim.ext.Simulation;
 import cloudsim.ext.gui.utils.SimMeasure;
 import cloudsim.ext.gui.utils.SimpleGraph;
 import cloudsim.ext.gui.utils.SimpleTableModel;
 import cloudsim.ext.stat.HourlyEventCounter;
 import cloudsim.ext.util.PdfExporter;
-import cloudsim.penalty.calulatePenalty;
 
 import com.lowagie.text.DocumentException;
 
@@ -63,6 +63,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 	private Map<String, BufferedImage> dcProcTimeGraphs;
 	private Map<String, BufferedImage> dcLoadingGraphs;
 	private SimpleTableModel ubStatsTableModel;
+	private SimpleTableModel penaltyCostTable;
 	private SimpleTableModel dcProcTimeTableModel;
 	private SimpleTableModel costTableModel;
 	private double totalCost;
@@ -96,6 +97,8 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		
 		Map<String, SimMeasure> ubStats = (Map<String, SimMeasure>) results.get(Constants.UB_STATS);		
 		mainContentPanel.add(createResponseTimeStatsPanel(ubStats));
+
+		mainContentPanel.add(penaltycostpanel());
 		
 		Map<String, SimMeasure> dcProcTimes = (Map<String, SimMeasure>) results.get(Constants.DC_PROCESSING_TIME_STATS);
 		mainContentPanel.add(createProcessingTimeStatsPanel(dcProcTimes));
@@ -119,11 +122,11 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		costPanel.setLayout(new BorderLayout());
 		costPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
 		
-		costTableModel = new SimpleTableModel(new String[]{"Cloud Service Provider", "Cloud Service Cost", "Data Transfer Cost","Penalty Cost", "Total"});
+		costTableModel = new SimpleTableModel(new String[]{"Cloud Service Provider", "Cloud Service Cost", "Data Transfer Cost", "Total"});
 		double dcVmCost;
 		double dcDataCost;
 		double dcTotalCost;
-                double dcPenaltyCost;
+		double dcPenaltyCost;
 		
 		for (String dcName : costs.keySet()){
 			Map<String, Double> dcCosts = costs.get(dcName);
@@ -137,7 +140,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 			dcTotalCost = dcCosts.get(Constants.TOTAL_COST);
 			totalCost += dcTotalCost;
 			
-			costTableModel.addRow(new Object[]{dcName, dcVmCost, dcDataCost,dcPenaltyCost, dcTotalCost});			
+			costTableModel.addRow(new Object[]{dcName, dcVmCost, dcDataCost, dcTotalCost});
 		}		
 		
 		String resText = "<html><h2>Cost</h2>" 
@@ -185,6 +188,32 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		
 		return summaryPanel;
 	}
+
+	private JPanel penaltycostpanel()
+	{
+		int rowCount = 0;
+		JPanel penaltycostnew = new JPanel();
+		penaltycostnew.setBorder(new EmptyBorder(20, 5, 5, 5));
+		penaltycostnew.setLayout(new BorderLayout());
+		penaltyCostTable = new SimpleTableModel(new String[]{"Cloud user","Penalty ($)"} );
+		int i = 1;
+
+		for (Double pc : calulatePenalty.perucp) {
+			penaltyCostTable.addRow(new Object[]{"CU"+ i,pc});
+			i++;
+			rowCount++;
+		}
+		JTable presTable = new JTable(penaltyCostTable);
+
+		presTable.setPreferredScrollableViewportSize(new Dimension(300, 20 * rowCount));
+		presTable.setEnabled(false);
+		JScrollPane tblPanel = new JScrollPane(presTable);
+
+		penaltycostnew.add(new JLabel("<html><h3>Penalty Cost By User </h3></html>"), BorderLayout.NORTH);
+		penaltycostnew.add(tblPanel, BorderLayout.CENTER);
+
+		return penaltycostnew;
+	}
 	
 	private JPanel createResponseTimeStatsPanel(Map<String, SimMeasure> ubStats) {
 		int count = 0;
@@ -196,61 +225,69 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		double currMax;
 		double currMin;
 		double currAvg;
-		
+
+
+
 		JPanel responseStatsPanel = new JPanel();
 		responseStatsPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
 		responseStatsPanel.setLayout(new BorderLayout());
-		
+
 		ubStatsTableModel = new SimpleTableModel(new String[]{"Cloud User", "Avg (ms)", "Min (ms)", "Max (ms)"});
 		JTable resTable = new JTable(ubStatsTableModel);
-		
+
 		List<SimMeasure> sortedStats = new ArrayList<SimMeasure>(ubStats.values());
 		Map<String, long[]> hourlyResponseTimes = new HashMap<String, long[]>();
-		
-		for(SimMeasure m : sortedStats){
+
+
+
+
+
+		for (SimMeasure m : sortedStats) {
+
 			String measureName = m.getName();
-			if (measureName.equals(Constants.UB_RESPONSE_TIME)){
+			if (measureName.equals(Constants.UB_RESPONSE_TIME)) {
 				//Update results table
-				ubStatsTableModel.addRow(new Object[]{m.getEntityName(), m.getAvg(), m.getMin(), m.getMax()});
-				
+				ubStatsTableModel.addRow(new Object[]{m.getEntityName(),m.getAvg(), m.getMin(), m.getMax()});
+
 				//Use the loop to calculate overall results
-				if (m.getType().equals(Constants.MEASURE_TYPE_USER_BASE_RESPONSE)){
+				if (m.getType().equals(Constants.MEASURE_TYPE_USER_BASE_RESPONSE)) {
 					currMax = m.getMax();
-					if (currMax > max){
+					if (currMax > max) {
 						max = currMax;
 					}
-					
+
 					currMin = m.getMin();
-					if (currMin < min){
+					if (currMin < min) {
 						min = currMin;
 					}
-					
+
 					currAvg = m.getAvg();
 					avgTotal += (currAvg * m.getCount());
-										
+
 					count += m.getCount();
 					rowCount++;
 				}
 			} else {
 				String ub = m.getEntityName();
 				long[] avgTimes = hourlyResponseTimes.get(ub);
-				if (avgTimes == null){
+				if (avgTimes == null) {
 					avgTimes = new long[24];
 					hourlyResponseTimes.put(ub, avgTimes);
 				}
-				
+
 				String hourStr = measureName.substring(measureName.lastIndexOf(Constants.STANDARD_SEPARATOR) + 1);
 				int hour = Integer.parseInt(hourStr);
 				currAvg = m.getAvg();
 				avgTimes[hour] = (long) currAvg;
-				
-				if (currAvg > maxAvg){
+
+				if (currAvg > maxAvg) {
 					maxAvg = currAvg;
 				}
-				
+
 			}
-		}						
-		
+
+		}
+
 		avgResponseTime = avgTotal / count;
 		minResponseTime = min;
 		maxResponseTime = max;
@@ -258,7 +295,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		resTable.setPreferredScrollableViewportSize(new Dimension(300, 20 * rowCount));
 		resTable.setEnabled(false);
 		JScrollPane tblPanel = new JScrollPane(resTable);
-		responseStatsPanel.add(new JLabel("<html><h3>Response Time By Region</h3></html>"), BorderLayout.NORTH);
+		responseStatsPanel.add(new JLabel("<html><h3>Response Time By Region </h3></html>"), BorderLayout.NORTH);
 		responseStatsPanel.add(tblPanel, BorderLayout.CENTER);
 		
 		//Create graphs
@@ -327,7 +364,9 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		JPanel procTimeStatsPanel = new JPanel();
 		procTimeStatsPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
 		procTimeStatsPanel.setLayout(new BorderLayout());
-		
+
+
+
 		dcProcTimeTableModel = new SimpleTableModel(new String[]{"Cloud Service Provider", "Avg (ms)", "Min (ms)", "Max (ms)"});
 		JTable procTimeTable = new JTable(dcProcTimeTableModel);
 		procTimeTable.setEnabled(false);

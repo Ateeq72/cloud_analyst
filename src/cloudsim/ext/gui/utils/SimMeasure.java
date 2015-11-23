@@ -14,7 +14,7 @@ public class SimMeasure implements Comparable<SimMeasure> {
 	private double max;
 	private double avg;
 	private int count;
-	
+	private double penalty;
 	
 	/**
 	 * @return the count
@@ -101,7 +101,12 @@ public class SimMeasure implements Comparable<SimMeasure> {
 		this.type = type;
 	}
 	
-	
+
+	public double getPenality()
+	{
+		return this.penalty;
+	}
+
 	public int compareTo(SimMeasure other) {
 		return name.compareTo(other.getName());
 	}

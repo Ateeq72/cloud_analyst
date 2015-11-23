@@ -17,8 +17,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.swing.JOptionPane;
-
 import cloudsim.Cloudlet;
 import cloudsim.CloudletList;
 import cloudsim.DataCenter;
@@ -88,7 +86,7 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
         static String BSP;
         private ArrayList<Double> CSPPenalty;
         private ArrayList<Double> CUPenalty;
-        private ArrayList<Double> TotalPenaltyList;
+	    public static  ArrayList<Double> TotalPenaltyList;
         static double penaltyCost;
 	
 	/** Constructor. */
@@ -179,15 +177,18 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
                 dp = new ArrayList<DatacenterController>();
                 CSPPenalty = new ArrayList<Double>();
                 TotalPenaltyList = new ArrayList<Double>();
+
 		for (DataCenterUIElement d : dataCenters) {
 			if (d.isAllocated()){
+
 				DataCenter dc = createDatacenter(d);
 				DatacenterController controller = createBroker(d.getName(), 	
 														       d.getRegion(), 
 														       d.getCostPerProcessor(), 
 														       d.getCostPerBw());
 				CSPPenalty.add(d.getTotalGivenTime());
-                                dcbs.add(controller);
+
+				dcbs.add(controller);
 				dcs.add(dc);
 				
 				int brokerId = controller.get_id();
@@ -199,7 +200,9 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 		//Create user bases
 		ubs  = new ArrayList<UserBase>();
                 CUPenalty = new ArrayList<Double>();
+
 		for (UserBaseUIElement ub : userBases) {
+
 			UserBase userBase = new UserBase(ub.getName(),
 											 ub.getRegion(),
 											 ub.getReqPerHrPerUser(),
@@ -211,6 +214,7 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 											 instructionLengthPerRequest,TotalTimeTaken);
 			
                         CUPenalty.add(ub.getTotalTakenTime());
+
                         ubs.add(userBase);
 		}
 
@@ -254,19 +258,48 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 		Map<String, Map<String, Double>> costs = new HashMap<String, Map<String,Double>>();
 		HourlyEventCounter hrlyArrivalStat = null;
 		double vmCost, dataCost, obtpenaltyCost, totalCost;
-                
-                
-                
-                for (Double csp : CSPPenalty)
-                {
-                    for (Double cu : CUPenalty)
-                {
-                   
-                 calulatePenalty a = new calulatePenalty(csp, cu, BSP);
-                    penaltyCost = a.getPenaltyCost();
-                    TotalPenaltyList.add(penaltyCost);          
-                }
-                }
+		calulatePenalty a = new calulatePenalty();
+		if(CSPPenalty.size() == CUPenalty.size()) {
+			int getmax = CSPPenalty.size();
+			for (int k = 0; k < getmax  ; k++)
+			{
+
+				a.setcalulatePenalty(CSPPenalty.get(k),CUPenalty.get(k),BSP);
+				penaltyCost = a.getPenaltyCost();
+				TotalPenaltyList.add(penaltyCost);
+
+			}
+		}
+		else if ( CSPPenalty.size() > CUPenalty.size()){
+
+			for(Double cu : CUPenalty)
+			{
+				for (Double csp : CSPPenalty)
+			{
+					a.setcalulatePenalty(csp,cu,BSP);
+					penaltyCost = a.getPenaltyCost();
+					TotalPenaltyList.add(penaltyCost);
+				}
+
+			}
+
+		}
+		else {
+			for (Double aCSPPenalty : CSPPenalty)
+			  {
+			    for(Double cu : CUPenalty)
+			{
+
+					a.setcalulatePenalty(aCSPPenalty, cu, BSP);
+					penaltyCost = a.getPenaltyCost();
+					TotalPenaltyList.add(penaltyCost);
+				}
+
+			}
+
+		}
+
+
                 
                 for(Double tp : TotalPenaltyList)
                 {

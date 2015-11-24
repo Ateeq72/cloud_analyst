@@ -39,7 +39,9 @@ public class PdfExporter {
 								 Map<String, BufferedImage> dcProcTimeGraphs,
 								 Map<String, BufferedImage> dcLoadingGraphs,
 								 List<Object[]> costSummary,
-								 List<Object[]> costDetails) throws IOException, DocumentException {
+								 List<Object[]> costDetails,
+								 List<Object[]> penaltyDetails
+	) throws IOException, DocumentException {
 		Document pdf = new Document();
 		ByteArrayOutputStream bout = new ByteArrayOutputStream();
 	
@@ -52,6 +54,7 @@ public class PdfExporter {
 		addSummary(pdf, summary);
 		
 		addUbResults(pdf, ubStats);
+		addPenaltyDetails(pdf,penaltyDetails);
 		addGraphs(pdf, ubResponseGraphs, "Cloud User Hourly Response Times");
 		
 		addDcProcessingStats(pdf, dcStats);
@@ -71,7 +74,19 @@ public class PdfExporter {
 		out.close();
 		bout.close();
 	}
-	
+
+	private static void addPenaltyDetails(Document pdf, List<Object[]> penaltyDetails) throws DocumentException {
+		addHeader(pdf, "Penalty Cost by CU per CSP", 12);
+
+		PdfPTable table = new PdfPTable(new float[]{0.25f, 0.25f});
+		table.addCell(getHeadingCell("Cloud User"));
+		table.addCell(getHeadingCell("Penalty Cost ($)"));
+
+		populateTable(penaltyDetails, table);
+		pdf.add(table);
+		pdf.add(new Paragraph(" "));
+	}
+
 	public static void addHeader(Document pdf, String text, int fontSize) throws DocumentException{
 		addHeader(pdf, text, fontSize, false);
 	}

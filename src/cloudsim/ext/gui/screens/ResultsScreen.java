@@ -122,7 +122,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		costPanel.setLayout(new BorderLayout());
 		costPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
 		
-		costTableModel = new SimpleTableModel(new String[]{"Cloud Service Provider", "Cloud Service Cost", "Data Transfer Cost", "Total"});
+		costTableModel = new SimpleTableModel(new String[]{"Cloud Service Provider", "Cloud Service Cost", "Data Transfer Cost","Penalty Cost ($)", "Total"});
 		double dcVmCost;
 		double dcDataCost;
 		double dcTotalCost;
@@ -140,13 +140,13 @@ public class ResultsScreen extends JPanel implements ActionListener {
 			dcTotalCost = dcCosts.get(Constants.TOTAL_COST);
 			totalCost += dcTotalCost;
 			
-			costTableModel.addRow(new Object[]{dcName, dcVmCost, dcDataCost, dcTotalCost});
+			costTableModel.addRow(new Object[]{dcName, dcVmCost, dcDataCost,dcPenaltyCost, dcTotalCost});
 		}		
 		
 		String resText = "<html><h2>Cost</h2>" 
 						+ "<table><tr><td>Total Cloud Service Cost :</td><td>$" + df.format(vmCost) + "</td></tr>" 
 						+ "<tr><td>Total Data Transfer Cost   : </td><td>$" + df.format(dataCost) + "</td></tr>"
-                                                + "<tr><td>Total Penalty Cost   : </td><td>$" + df.format(penaltyCost) + "</td></tr>"
+				        + "<tr><td>Total Penalty Cost   : </td><td>$" + df.format(penaltyCost) + "</td></tr>"
 						+ "<tr><td><h3>Grand Total                : </h3></td><td>$" + df.format(totalCost) + "</td></tr>"
 						+ "</table></html>";
 		costPanel.add(new JLabel(resText), BorderLayout.NORTH);
@@ -209,7 +209,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		presTable.setEnabled(false);
 		JScrollPane tblPanel = new JScrollPane(presTable);
 
-		penaltycostnew.add(new JLabel("<html><h3>Penalty Cost By User </h3></html>"), BorderLayout.NORTH);
+		penaltycostnew.add(new JLabel("<html><h3>Penalty Cost By User for one Cloud Service Provider</h3></html>"), BorderLayout.NORTH);
 		penaltycostnew.add(tblPanel, BorderLayout.CENTER);
 
 		return penaltycostnew;
@@ -585,6 +585,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		
 		List<Object[]> ubStats = ubStatsTableModel.getData();
 		List<Object[]> dcStats = dcProcTimeTableModel.getData();
+		List<Object[]> penaltyDetails = penaltyCostTable.getData();
 		
 		List<Object[]> costSummary = new ArrayList<Object[]>();
 		costSummary.add(new Object[]{"Total Cloud Service Cost ($):", vmCost});
@@ -595,7 +596,7 @@ public class ResultsScreen extends JPanel implements ActionListener {
 		List<Object[]> costDetails = costTableModel.getData();
 		
 		PdfExporter.saveToPdf(file, header, summary, ubStats, ubResponseGraphs, 
-							  dcStats, dcProcTimeGraphs, dcLoadingGraphs, costSummary, costDetails);
+							  dcStats, dcProcTimeGraphs, dcLoadingGraphs, costSummary, costDetails, penaltyDetails);
 		
 		//TODO - Add simulation configuration to the pdf
 	}

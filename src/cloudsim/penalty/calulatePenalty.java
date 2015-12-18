@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  *
- * @author aristocrat
+ * @author aristocrat_ateeq
  */
 public class calulatePenalty {
 
